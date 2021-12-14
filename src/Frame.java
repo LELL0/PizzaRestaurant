@@ -356,15 +356,14 @@ public class Frame implements ActionListener {
 		btnSubmit.addActionListener(this);
 
 		// KList
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportView(listOfPizza);
+		JScrollPane scrollPane = new JScrollPane(listOfPizza);
+//		scrollPane.setViewportView(listOfPizza);
 		listOfPizza.setLayoutOrientation(JList.VERTICAL);
 		scrollPane.setBounds(299, 157, 17, 133);
 
 		// Panel
 		panel = new JPanel(new BorderLayout());
 		panel.setBounds(181, 157, 131, 135);
-		scrollPane.setViewportView(listOfPizza);
 		panel.add(scrollPane);
 		frame.getContentPane().add(panel);
 
@@ -511,7 +510,7 @@ public class Frame implements ActionListener {
 			if (TF_CustomerName.getText().isEmpty() || TF_Address.getText().isEmpty() || (TF_Number.getText().isEmpty())
 					|| listOfPizza.getSelectedValue() == null) {
 				TF_Result.setText("Missing critical information");
-			} else if (isInt(TF_CustomerName.getText()) || TF_CustomerName.getText().length() < 4) {
+			} else if (isInt(TF_CustomerName.getText()) || TF_CustomerName.getText().length() < 3) {
 				TF_Result.setText("Please Enter A Valid Name");
 			} else if (!isInt(TF_Number.getText()) || TF_Number.getText().length() < 8) {
 				TF_Result.setText("Please Enter A Valid phone number");
